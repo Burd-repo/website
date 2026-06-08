@@ -1,187 +1,486 @@
-Guia de Contribuição do Website da Burd
+# Guia de Contribuição do Website da Burd
 
-Explore o repositório do site oficial da Burd. Este projeto serve como a interface principal da nossa plataforma, ilustrando o poder da Burd — a camada de infraestrutura descentralizada que transforma GPUs distribuídas em um mercado livre e simples para Inteligência Artificial na América Latina.
-Rodando o Projeto Localmente
+Bem-vindo ao repositório do site oficial da **Burd**.
 
-Para rodar o repositório localmente e explorar a interface na sua máquina, siga estes passos simples:
+Este projeto é a interface principal da nossa plataforma e apresenta a proposta da Burd: uma camada de infraestrutura descentralizada que transforma GPUs distribuídas em um mercado livre, acessível e simples para aplicações de Inteligência Artificial na América Latina.
 
-1. Clone o Repositório:
-Bash
-
-git clone https://github.com/burd-network/website
-
-2. Acesse o Diretório:
-Bash
-
-cd website
-
-3. Instale as Dependências:
-Bash
-
-npm install
-
-4. Rode o Servidor de Desenvolvimento:
-Bash
-
-npm run dev
-
-5. Abra no Navegador:
-Acesse http://localhost:3000 (porta padrão do Next.js) para visualizar o site da Burd localmente.
-Diretrizes de Contribuição
-
-Antes de enviar código para o projeto, pedimos que siga as diretrizes abaixo para garantir a integridade, a arquitetura e o padrão visual do projeto.
-Convenção de Nomenclatura de Arquivos
-
-Ao criar arquivos para componentes, páginas ou utilitários, utilize o padrão kebab-case (palavras em minúsculo separadas por hífen).
-
-    Exemplo: gpu-card.tsx ou provider-bids-table.ts
-
-Estrutura das Mensagens de Commit
-
-Cada mensagem de commit deve seguir uma estrutura semântica clara, começando com o tipo seguido de uma descrição concisa. Utilize os seguintes padrões:
-
-    feat: Introduz uma nova funcionalidade ou componente.
-
-        Exemplo: feat: implementa gráfico de ganhos do provedor em tempo real
-
-    fix: Corrige um bug ou falha visual/lógica.
-
-        Exemplo: fix: resolve quebra de layout no bento grid no mobile
-
-    docs: Focado em alterações de documentação (README, guias ou tutoriais).
-
-        Exemplo: docs: atualiza instruções de deploy na Vercel
-
-    style: Mudanças de formatação que não afetam a lógica (Tailwind, indentação, cores).
-
-        Exemplo: style: ajusta o glow azul dos botões principais
-
-    chore: Tarefas de rotina, manutenção ou atualização de dependências.
-
-        Exemplo: chore: atualiza framer-motion para a última versão
-
-    test: Adição ou modificação de testes unitários ou E2E.
-
-        Exemplo: test: adiciona validação para o formulário de waitlist
-
-    perf: Otimização de código focada em performance e carregamento.
-
-        Exemplo: perf: otimiza carregamento das partículas 3D no hero
-
-    refactor: Melhoria na estrutura do código sem adicionar novas features ou corrigir bugs.
-
-        Exemplo: refactor: extrai lógica de formatação de valores em reais (R$)
-
-Boas Práticas para Commits:
-
-    Mantenha a mensagem curta e vá direto ao ponto.
-
-    Utilize verbos no modo imperativo (ex: "adiciona", "corrige", "atualiza").
-
-    Forneça contexto extra no corpo da mensagem caso a alteração seja complexa.
-
-Como Contribuir com o Conteúdo do Site
-
-A arquitetura do nosso conteúdo é baseada em Markdown/MDX. Siga os passos abaixo para adicionar novas páginas.
-Como escrever um artigo / Blog
-
-    Crie uma nova pasta em src/content/Blog/ com o slug do artigo. Exemplo: src/content/Blog/como-rodar-modelos-open-source/
-
-    Crie um arquivo index.md dentro dessa nova pasta.
-
-    Copie o frontmatter abaixo e preencha os detalhes:
-
-Markdown
+Este guia explica como rodar o projeto localmente, seguir os padrões de contribuição e adicionar novos conteúdos ao website.
 
 ---
-title: "Como rodar Modelos Open Source na Burd" # <--- Título do artigo
-description: "Um guia prático para fazer o deploy sem lidar com Docker." # <--- Resumo
-pubDate: "2026-06-10" # <--- Formato YYYY-MM-DD
-draft: false # <--- Mude para true se não estiver pronto para publicar
+
+## Rodando o projeto localmente
+
+Para executar o site da Burd na sua máquina, siga os passos abaixo.
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/burd-network/website
+```
+
+### 2. Acesse o diretório do projeto
+
+```bash
+cd website
+```
+
+### 3. Instale as dependências
+
+```bash
+npm install
+```
+
+### 4. Rode o servidor de desenvolvimento
+
+```bash
+npm run dev
+```
+
+### 5. Abra no navegador
+
+Acesse:
+
+```txt
+http://localhost:3000
+```
+
+---
+
+## Diretrizes de contribuição
+
+Antes de enviar código para o projeto, siga as diretrizes abaixo para manter a consistência visual, técnica e estrutural do website da Burd.
+
+---
+
+## Convenção de nomenclatura de arquivos
+
+Ao criar arquivos para componentes, páginas, hooks, utilitários ou módulos, utilize o padrão **kebab-case**.
+
+Exemplos:
+
+```txt
+gpu-card.tsx
+provider-bids-table.tsx
+use-provider-stats.ts
+format-currency.ts
+```
+
+Evite nomes em PascalCase ou camelCase para arquivos.
+
+---
+
+## Estrutura das mensagens de commit
+
+As mensagens de commit devem seguir uma estrutura semântica simples:
+
+```txt
+tipo: descrição curta da alteração
+```
+
+Use os seguintes tipos:
+
+### `feat`
+
+Use para novas funcionalidades, páginas ou componentes.
+
+```txt
+feat: adiciona seção de provedores de GPU
+```
+
+### `fix`
+
+Use para correções de bugs, falhas visuais ou problemas de lógica.
+
+```txt
+fix: corrige quebra do bento grid no mobile
+```
+
+### `docs`
+
+Use para mudanças em documentação, guias, tutoriais ou README.
+
+```txt
+docs: atualiza instruções de deploy
+```
+
+### `style`
+
+Use para ajustes visuais ou de formatação que não alteram a lógica.
+
+```txt
+style: ajusta espaçamento do hero
+```
+
+### `chore`
+
+Use para tarefas de manutenção, organização ou atualização de dependências.
+
+```txt
+chore: atualiza dependências do projeto
+```
+
+### `test`
+
+Use para criação ou alteração de testes.
+
+```txt
+test: adiciona validação do formulário de waitlist
+```
+
+### `perf`
+
+Use para melhorias de performance.
+
+```txt
+perf: otimiza carregamento das imagens do hero
+```
+
+### `refactor`
+
+Use para melhorias internas no código sem alterar comportamento ou adicionar funcionalidades.
+
+```txt
+refactor: extrai lógica de formatação de valores
+```
+
+---
+
+## Boas práticas para commits
+
+- Mantenha a mensagem curta e objetiva.
+- Use verbos no modo imperativo, como `adiciona`, `corrige`, `atualiza`, `remove` ou `melhora`.
+- Quando a alteração for complexa, adicione contexto no corpo do commit.
+- Evite mensagens genéricas como `ajustes`, `correções` ou `update`.
+
+---
+
+# Como contribuir com o conteúdo do site
+
+O conteúdo do website é organizado em arquivos **Markdown/MDX**. Abaixo estão os padrões para adicionar artigos, projetos do ecossistema e páginas de documentação.
+
+---
+
+## Como escrever um artigo ou post de blog
+
+Para adicionar um novo artigo:
+
+### 1. Crie uma nova pasta em:
+
+```txt
+src/content/Blog/
+```
+
+Use o slug do artigo como nome da pasta.
+
+Exemplo:
+
+```txt
+src/content/Blog/como-rodar-modelos-open-source/
+```
+
+### 2. Crie um arquivo `index.md`
+
+Dentro da pasta criada, adicione:
+
+```txt
+index.md
+```
+
+### 3. Use o frontmatter abaixo
+
+```md
+---
+title: "Como rodar modelos open source na Burd"
+description: "Um guia prático para fazer deploy de modelos sem lidar diretamente com Docker."
+pubDate: "2026-06-10"
+draft: false
 categories:
   - Tutoriais
 tags:
   - LLM
   - Deploy
 author: "Nome do Contribuidor"
-bannerImage: ./banner-image.jpg # <--- Imagem de capa na mesma pasta
+bannerImage: ./banner-image.jpg
+---
+```
+
+### 4. Adicione a imagem de capa
+
+Coloque a imagem de capa na mesma pasta do artigo.
+
+Exemplo:
+
+```txt
+src/content/Blog/como-rodar-modelos-open-source/banner-image.jpg
+```
+
+### 5. Escreva o conteúdo
+
+Abaixo do frontmatter, escreva o conteúdo do artigo em Markdown.
+
+### 6. Faça o commit e envie as alterações
+
+```bash
+git add .
+git commit -m "docs: adiciona artigo sobre modelos open source"
+git push
+```
+
+Após o push, o site fará o build e publicará o conteúdo automaticamente conforme o fluxo de deploy configurado.
+
 ---
 
-    Adicione a imagem de capa na mesma pasta.
+# Como adicionar um projeto ao Ecossistema
 
-    Escreva o conteúdo em formato Markdown abaixo do bloco.
-
-    Faça o commit e o push. O site fará o build e publicará automaticamente.
-
-Como adicionar um projeto ao Ecossistema
-
-A seção de ecossistema lista ferramentas e workloads que já rodam na rede da Burd.
-
-    Crie uma pasta em src/content/Ecosystem/ com o nome do projeto. Exemplo: src/content/Ecosystem/chat-llm-template/
-
-    Crie o arquivo index.md e utilize o template:
-
-Markdown
+A seção de Ecossistema lista ferramentas, aplicações e workloads que já rodam ou podem rodar na infraestrutura da Burd.
 
 ---
-projectTitle: Chat LLM Template
+
+## 1. Crie uma nova pasta em:
+
+```txt
+src/content/Ecosystem/
+```
+
+Use o nome do projeto como slug.
+
+Exemplo:
+
+```txt
+src/content/Ecosystem/chat-llm-template/
+```
+
+---
+
+## 2. Crie o arquivo `index.md`
+
+Dentro da pasta do projeto, crie:
+
+```txt
+index.md
+```
+
+---
+
+## 3. Use o template abaixo
+
+```md
+---
+projectTitle: "Chat LLM Template"
 projectImage: "./project-banner.png"
 pubDate: "2026-06-01"
-tags: 
+tags:
   - AI & ML
-category: deployed_on_burd # <--- Pode ser "deployed_on_burd" ou "tools"
-description: Interface de chat rodando Llama 3 direto nas GPUs distribuídas da Burd, com latência otimizada para LATAM.
+category: deployed_on_burd
+description: "Interface de chat rodando Llama 3 em GPUs distribuídas da Burd, com latência otimizada para a América Latina."
 websiteLink: "https://chat.sua-url.com/"
 githubLink: "https://github.com/burd-network/chat-template"
-featured: true # <--- Define se o projeto aparece no topo da página
+featured: true
+---
+```
+
 ---
 
-Documentação (Docs)
-Como alterar a sequência da Documentação
+## Campos principais
 
-    Acesse o arquivo de configuração, geralmente em src/content/Docs/sequence.ts.
+### `projectTitle`
 
-    Altere a ordem dos arrays para reorganizar a barra lateral.
+Nome do projeto exibido no website.
 
-TypeScript
+### `projectImage`
 
+Imagem de destaque do projeto. A imagem deve estar na mesma pasta do `index.md`.
+
+### `pubDate`
+
+Data de publicação no formato:
+
+```txt
+YYYY-MM-DD
+```
+
+### `tags`
+
+Lista de tags relacionadas ao projeto.
+
+Exemplos:
+
+```txt
+AI & ML
+Deploy
+Infraestrutura
+LLM
+GPU
+```
+
+### `category`
+
+Categoria do projeto.
+
+Valores aceitos:
+
+```txt
+deployed_on_burd
+tools
+```
+
+### `description`
+
+Descrição curta do projeto.
+
+### `websiteLink`
+
+Link para acessar o projeto em produção.
+
+### `githubLink`
+
+Link para o repositório do projeto.
+
+### `featured`
+
+Define se o projeto aparece em destaque.
+
+```txt
+true
+false
+```
+
+---
+
+# Documentação
+
+A documentação da Burd também é organizada em Markdown/MDX.
+
+---
+
+## Como alterar a sequência da documentação
+
+Para alterar a ordem dos itens da documentação, edite o arquivo de sequência, geralmente localizado em:
+
+```txt
+src/content/Docs/sequence.ts
+```
+
+A ordem dos itens no array define a ordem exibida na barra lateral da documentação.
+
+Exemplo:
+
+```ts
 export const docsSequence = [
   {
     label: "Documentação",
     subItems: [
       {
-        label: "Começando", // <--- Altere a ordem aqui
-        subItems: [ 
-          { label: "O que é a Burd?" }, 
+        label: "Começando",
+        subItems: [
+          { label: "O que é a Burd?" },
           { label: "Primeiro Deploy" },
           { label: "Guia para Provedores de GPU" },
           { label: "Trust Score e Bids" },
         ],
       },
-  }]
+    ],
+  },
+];
+```
 
-Como adicionar uma nova página nos Docs
-
-    Crie uma nova pasta em src/content/Docs/ com o assunto desejado. Exemplo: src/content/Docs/provedores/
-
-    Crie o arquivo index.md utilizando o seguinte template:
-
-Markdown
+Para reorganizar a sidebar, altere a ordem dos objetos dentro de `subItems`.
 
 ---
-title: "Requisitos de Hardware para Provedores" # <--- Título do Doc
-linkTitle: "Requisitos de Hardware" # <--- Título curto para o menu
-weight: 1 # <--- Peso para a ordem de exibição
-categories: ["Provedores"]
-tags: ["Infraestrutura", "GPU"]
+
+## Como adicionar uma nova página nos Docs
+
+### 1. Crie uma nova pasta em:
+
+```txt
+src/content/Docs/
+```
+
+Use o assunto da documentação como nome da pasta.
+
+Exemplo:
+
+```txt
+src/content/Docs/provedores/
+```
+
 ---
 
-Contato
+### 2. Crie o arquivo `index.md`
 
-    Discord: [Burd Network]
+Dentro da pasta criada, adicione:
 
-    X/Twitter: [@BurdNetwork]
+```txt
+index.md
+```
 
-    Website Oficial: [burd.network]
+---
 
-    GitHub: [github.com/burd-network]
+### 3. Use o template abaixo
+
+```md
+---
+title: "Requisitos de hardware para provedores"
+linkTitle: "Requisitos de hardware"
+weight: 1
+categories:
+  - Provedores
+tags:
+  - Infraestrutura
+  - GPU
+---
+
+Escreva aqui o conteúdo da documentação.
+```
+
+---
+
+## Campos principais dos Docs
+
+### `title`
+
+Título completo da página.
+
+### `linkTitle`
+
+Título curto exibido na navegação lateral.
+
+### `weight`
+
+Define a ordem de exibição da página.
+
+### `categories`
+
+Categoria principal da documentação.
+
+### `tags`
+
+Tags relacionadas ao conteúdo.
+
+---
+
+# Checklist antes de abrir um Pull Request
+
+Antes de enviar sua contribuição, confira:
+
+- O projeto roda localmente com `npm run dev`.
+- O código segue a estrutura e o padrão visual existente.
+- Os arquivos novos usam `kebab-case`.
+- As mensagens de commit seguem o padrão semântico.
+- O conteúdo em Markdown possui frontmatter válido.
+- Imagens estão na pasta correta.
+- Não há arquivos desnecessários ou temporários no commit.
+- O layout foi testado em desktop e mobile.
+
+---
+
+# Contato
+
+- Discord: Burd IA
+- X/Twitter: @Burd.ia
+- Website oficial: burd.ia
+- GitHub: github.com/repo-burd
+
+---
+
+Obrigado por contribuir com a Burd.
