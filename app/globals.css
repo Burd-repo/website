@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --variable-collection-whhite: rgba(245, 246, 241, 1);
+  --variable-collection-white: rgba(245, 246, 241, 1);
+  --white: var(--variable-collection-whhite);
+  --animate-spin: spin 1s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0A0A0A;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  text-rendering: optimizeLegibility;
+  background: #0A0A0A;
+  color: #F5F5F5;
+}
+
+::selection {
+  background: rgba(245, 245, 245, 0.15);
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid #3F8047;
+  outline-offset: 2px;
+}
+
+@layer base {
+  * {
+    @apply border-zinc-800;
+  }
+
+  a,
+  button {
+    @apply transition duration-200;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+}
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+  
+  .font-sans {
+    font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  }
+
+  /* Thin border grid utilities */
+  .grid-border-zinc {
+    border-color: #1A1A1A;
+  }
+
+  /* Glassmorphism classes */
+  .glass-navbar {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(7.58px);
+    -webkit-backdrop-filter: blur(7.58px);
+  }
+
+  .glass-card {
+    background: rgba(17, 17, 17, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* Animations and keyframes provided in specification */
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
