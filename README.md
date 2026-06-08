@@ -1,7 +1,8 @@
-# Ibaka
+# Burd
 
-A camada simples para usar IA aberta no Brasil.
-Use modelos open source, integrações prontas e custo em reais — sem lidar com GPU, Docker ou servidores.
+**A camada de infraestrutura para IA descentralizada.**
+
+Acesse o poder de GPUs distribuídas na América Latina com previsibilidade de custo em reais. Rode modelos open source, faça o deploy dos seus workloads e escale sua IA na hora — sem precisar encostar em Docker, CUDA ou configuração de servidores.
 
 ## Tecnologias utilizadas
 - Next.js (App Router)
