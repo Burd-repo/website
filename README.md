@@ -1,42 +1,69 @@
-# Guia de Contribuição do Website da Burd
+<div align="left">
 
-Bem-vindo ao repositório do site oficial da **Burd**.
+<a href="https://burd.ia">
+  <img src="./public/burd%20logo.svg" alt="Logo da Burd" title="Burd Website" height="48" />
+</a>
 
-Este projeto é a interface principal da nossa plataforma e apresenta a proposta da Burd: uma camada de infraestrutura descentralizada que transforma GPUs distribuídas em um mercado livre, acessível e simples para aplicações de Inteligência Artificial na América Latina.
+<br />
 
-Este guia explica como rodar o projeto localmente, seguir os padrões de contribuição e adicionar novos conteúdos ao website.
+<p>
+  Website oficial da Burd para apresentar a plataforma, publicar conteúdos, organizar documentação e comunicar a proposta da Burd para infraestrutura descentralizada de compute.
+</p>
+
+[![status](https://img.shields.io/badge/status-active-2C5E8A)](https://github.com/Burd-repo/website)
+[![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+[![website](https://img.shields.io/badge/website-burd.ia-lightgrey)](https://burd.ia)
+[![content](https://img.shields.io/badge/content-mdx-blue)](https://github.com/Burd-repo/website)
+
+</div>
 
 ---
 
-## Rodando o projeto localmente
+## Sumário
 
-Para executar o site da Burd na sua máquina, siga os passos abaixo.
+* [Visão geral](#visão-geral)
+* [Início rápido](#início-rápido)
+* [Rodando o projeto](#rodando-o-projeto)
+* [Regras de desenvolvimento](#regras-de-desenvolvimento)
+* [Conteúdo do website](#conteúdo-do-website)
+* [Artigos e posts](#artigos-e-posts)
+* [Ecossistema](#ecossistema)
+* [Documentação](#documentação)
+* [Diretrizes para Pull Request](#diretrizes-para-pull-request)
+* [Checklist de Pull Request](#checklist-de-pull-request)
+* [Convenção de commits](#convenção-de-commits)
+* [Não commitar](#não-commitar)
+* [Notas para mantenedores](#notas-para-mantenedores)
+* [Licença](#licença)
 
-### 1. Clone o repositório
+---
+
+## Visão geral
+
+Este repositório contém o website oficial da Burd.
+
+O site é responsável por:
+
+* apresentar a proposta da Burd;
+* organizar páginas institucionais;
+* publicar artigos e conteúdos;
+* manter documentação pública;
+* listar projetos e ferramentas do ecossistema;
+* comunicar a experiência visual da marca;
+* servir como ponto principal de entrada para usuários, builders e providers.
+
+O website deve manter uma identidade visual consistente, clara e objetiva.
+
+---
+
+## Início rápido
 
 ```bash
-git clone https://github.com/burd-network/website
-```
-
-### 2. Acesse o diretório do projeto
-
-```bash
+git clone https://github.com/Burd-repo/website.git
 cd website
-```
-
-### 3. Instale as dependências
-
-```bash
 npm install
-```
-
-### 4. Rode o servidor de desenvolvimento
-
-```bash
 npm run dev
 ```
-
-### 5. Abra no navegador
 
 Acesse:
 
@@ -44,17 +71,50 @@ Acesse:
 http://localhost:3000
 ```
 
+Antes de abrir um Pull Request, rode:
+
+```bash
+npm run build
+```
+
+Se o projeto tiver script de lint ou typecheck configurado, rode também:
+
+```bash
+npm run lint
+npm run typecheck
+```
+
 ---
 
-## Diretrizes de contribuição
+## Rodando o projeto
 
-Antes de enviar código para o projeto, siga as diretrizes abaixo para manter a consistência visual, técnica e estrutural do website da Burd.
+### Desenvolvimento
+
+```bash
+npm run dev
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Preview local
+
+```bash
+npm run preview
+```
+
+Use o comando disponível no `package.json` caso o projeto tenha uma variação específica para preview.
 
 ---
 
-## Convenção de nomenclatura de arquivos
+## Regras de desenvolvimento
 
-Ao criar arquivos para componentes, páginas, hooks, utilitários ou módulos, utilize o padrão **kebab-case**.
+### Nomenclatura de arquivos
+
+Use `kebab-case` para arquivos.
 
 Exemplos:
 
@@ -63,108 +123,64 @@ gpu-card.tsx
 provider-bids-table.tsx
 use-provider-stats.ts
 format-currency.ts
+hero-section.tsx
+pricing-card.tsx
 ```
 
-Evite nomes em PascalCase ou camelCase para arquivos.
+Evite nomes de arquivo em PascalCase ou camelCase.
 
 ---
 
-## Estrutura das mensagens de commit
+### Consistência visual
 
-As mensagens de commit devem seguir uma estrutura semântica simples:
+Toda mudança visual deve respeitar a identidade da Burd.
 
-```txt
-tipo: descrição curta da alteração
-```
+Regras:
 
-Use os seguintes tipos:
-
-### `feat`
-
-Use para novas funcionalidades, páginas ou componentes.
-
-```txt
-feat: adiciona seção de provedores de GPU
-```
-
-### `fix`
-
-Use para correções de bugs, falhas visuais ou problemas de lógica.
-
-```txt
-fix: corrige quebra do bento grid no mobile
-```
-
-### `docs`
-
-Use para mudanças em documentação, guias, tutoriais ou README.
-
-```txt
-docs: atualiza instruções de deploy
-```
-
-### `style`
-
-Use para ajustes visuais ou de formatação que não alteram a lógica.
-
-```txt
-style: ajusta espaçamento do hero
-```
-
-### `chore`
-
-Use para tarefas de manutenção, organização ou atualização de dependências.
-
-```txt
-chore: atualiza dependências do projeto
-```
-
-### `test`
-
-Use para criação ou alteração de testes.
-
-```txt
-test: adiciona validação do formulário de waitlist
-```
-
-### `perf`
-
-Use para melhorias de performance.
-
-```txt
-perf: otimiza carregamento das imagens do hero
-```
-
-### `refactor`
-
-Use para melhorias internas no código sem alterar comportamento ou adicionar funcionalidades.
-
-```txt
-refactor: extrai lógica de formatação de valores
-```
+* manter a direção visual existente;
+* evitar componentes com aparência genérica;
+* preservar espaçamentos, bordas, tipografia e hierarquia visual;
+* não adicionar cores fora do padrão sem justificativa;
+* não substituir a identidade visual por estilos prontos de template;
+* testar alterações em desktop e mobile;
+* evitar excesso de animações ou poluição visual;
+* manter a experiência objetiva e técnica.
 
 ---
 
-## Boas práticas para commits
+### Componentes
 
-- Mantenha a mensagem curta e objetiva.
-- Use verbos no modo imperativo, como `adiciona`, `corrige`, `atualiza`, `remove` ou `melhora`.
-- Quando a alteração for complexa, adicione contexto no corpo do commit.
-- Evite mensagens genéricas como `ajustes`, `correções` ou `update`.
+Ao criar ou alterar componentes:
+
+* mantenha o componente pequeno e legível;
+* evite duplicação de lógica;
+* use nomes claros;
+* preserve acessibilidade básica;
+* mantenha responsividade;
+* não crie componentes novos se um existente puder ser reutilizado;
+* não misture conteúdo, layout e regra de negócio sem necessidade.
 
 ---
 
-# Como contribuir com o conteúdo do site
+## Conteúdo do website
 
-O conteúdo do website é organizado em arquivos **Markdown/MDX**. Abaixo estão os padrões para adicionar artigos, projetos do ecossistema e páginas de documentação.
+O conteúdo do website pode ser organizado em arquivos Markdown ou MDX.
+
+Ao adicionar conteúdo:
+
+* use frontmatter válido;
+* mantenha títulos claros;
+* use imagens otimizadas;
+* coloque imagens na pasta correta;
+* evite textos genéricos;
+* mantenha o tom da Burd;
+* não publique conteúdo sem revisar links, datas e metadados.
 
 ---
 
-## Como escrever um artigo ou post de blog
+## Artigos e posts
 
-Para adicionar um novo artigo:
-
-### 1. Crie uma nova pasta em:
+Para adicionar um novo artigo, crie uma pasta em:
 
 ```txt
 src/content/Blog/
@@ -178,20 +194,18 @@ Exemplo:
 src/content/Blog/como-rodar-modelos-open-source/
 ```
 
-### 2. Crie um arquivo `index.md`
-
-Dentro da pasta criada, adicione:
+Dentro da pasta, crie:
 
 ```txt
 index.md
 ```
 
-### 3. Use o frontmatter abaixo
+Template recomendado:
 
 ```md
 ---
 title: "Como rodar modelos open source na Burd"
-description: "Um guia prático para fazer deploy de modelos sem lidar diretamente com Docker."
+description: "Um guia prático para fazer deploy de modelos sem lidar diretamente com infraestrutura complexa."
 pubDate: "2026-06-10"
 draft: false
 categories:
@@ -199,14 +213,15 @@ categories:
 tags:
   - LLM
   - Deploy
+  - GPU
 author: "Nome do Contribuidor"
 bannerImage: ./banner-image.jpg
 ---
+
+Escreva aqui o conteúdo do artigo.
 ```
 
-### 4. Adicione a imagem de capa
-
-Coloque a imagem de capa na mesma pasta do artigo.
+A imagem de capa deve ficar na mesma pasta do artigo.
 
 Exemplo:
 
@@ -214,29 +229,11 @@ Exemplo:
 src/content/Blog/como-rodar-modelos-open-source/banner-image.jpg
 ```
 
-### 5. Escreva o conteúdo
-
-Abaixo do frontmatter, escreva o conteúdo do artigo em Markdown.
-
-### 6. Faça o commit e envie as alterações
-
-```bash
-git add .
-git commit -m "docs: adiciona artigo sobre modelos open source"
-git push
-```
-
-Após o push, o site fará o build e publicará o conteúdo automaticamente conforme o fluxo de deploy configurado.
-
 ---
 
-# Como adicionar um projeto ao Ecossistema
+## Ecossistema
 
-A seção de Ecossistema lista ferramentas, aplicações e workloads que já rodam ou podem rodar na infraestrutura da Burd.
-
----
-
-## 1. Crie uma nova pasta em:
+Para adicionar um projeto ao ecossistema, crie uma pasta em:
 
 ```txt
 src/content/Ecosystem/
@@ -250,19 +247,13 @@ Exemplo:
 src/content/Ecosystem/chat-llm-template/
 ```
 
----
-
-## 2. Crie o arquivo `index.md`
-
-Dentro da pasta do projeto, crie:
+Dentro da pasta, crie:
 
 ```txt
 index.md
 ```
 
----
-
-## 3. Use o template abaixo
+Template recomendado:
 
 ```md
 ---
@@ -271,74 +262,26 @@ projectImage: "./project-banner.png"
 pubDate: "2026-06-01"
 tags:
   - AI & ML
+  - LLM
+  - GPU
 category: deployed_on_burd
-description: "Interface de chat rodando Llama 3 em GPUs distribuídas da Burd, com latência otimizada para a América Latina."
-websiteLink: "https://chat.sua-url.com/"
-githubLink: "https://github.com/burd-network/chat-template"
+description: "Interface de chat para modelos open source usando compute distribuído."
+websiteLink: "https://exemplo.com/"
+githubLink: "https://github.com/Burd-repo/exemplo"
 featured: true
 ---
+
+Escreva aqui uma descrição mais completa do projeto.
 ```
 
----
-
-## Campos principais
-
-### `projectTitle`
-
-Nome do projeto exibido no website.
-
-### `projectImage`
-
-Imagem de destaque do projeto. A imagem deve estar na mesma pasta do `index.md`.
-
-### `pubDate`
-
-Data de publicação no formato:
-
-```txt
-YYYY-MM-DD
-```
-
-### `tags`
-
-Lista de tags relacionadas ao projeto.
-
-Exemplos:
-
-```txt
-AI & ML
-Deploy
-Infraestrutura
-LLM
-GPU
-```
-
-### `category`
-
-Categoria do projeto.
-
-Valores aceitos:
+Categorias aceitas:
 
 ```txt
 deployed_on_burd
 tools
 ```
 
-### `description`
-
-Descrição curta do projeto.
-
-### `websiteLink`
-
-Link para acessar o projeto em produção.
-
-### `githubLink`
-
-Link para o repositório do projeto.
-
-### `featured`
-
-Define se o projeto aparece em destaque.
+O campo `featured` deve ser:
 
 ```txt
 true
@@ -347,56 +290,15 @@ false
 
 ---
 
-# Documentação
+## Documentação
 
-A documentação da Burd também é organizada em Markdown/MDX.
-
----
-
-## Como alterar a sequência da documentação
-
-Para alterar a ordem dos itens da documentação, edite o arquivo de sequência, geralmente localizado em:
-
-```txt
-src/content/Docs/sequence.ts
-```
-
-A ordem dos itens no array define a ordem exibida na barra lateral da documentação.
-
-Exemplo:
-
-```ts
-export const docsSequence = [
-  {
-    label: "Documentação",
-    subItems: [
-      {
-        label: "Começando",
-        subItems: [
-          { label: "O que é a Burd?" },
-          { label: "Primeiro Deploy" },
-          { label: "Guia para Provedores de GPU" },
-          { label: "Trust Score e Bids" },
-        ],
-      },
-    ],
-  },
-];
-```
-
-Para reorganizar a sidebar, altere a ordem dos objetos dentro de `subItems`.
-
----
-
-## Como adicionar uma nova página nos Docs
-
-### 1. Crie uma nova pasta em:
+Para adicionar uma nova página de documentação, crie uma pasta em:
 
 ```txt
 src/content/Docs/
 ```
 
-Use o assunto da documentação como nome da pasta.
+Use o assunto como nome da pasta.
 
 Exemplo:
 
@@ -404,30 +306,25 @@ Exemplo:
 src/content/Docs/provedores/
 ```
 
----
-
-### 2. Crie o arquivo `index.md`
-
-Dentro da pasta criada, adicione:
+Dentro da pasta, crie:
 
 ```txt
 index.md
 ```
 
----
-
-### 3. Use o template abaixo
+Template recomendado:
 
 ```md
 ---
-title: "Requisitos de hardware para provedores"
+title: "Requisitos de hardware para providers"
 linkTitle: "Requisitos de hardware"
 weight: 1
 categories:
-  - Provedores
+  - Providers
 tags:
   - Infraestrutura
   - GPU
+  - Compute
 ---
 
 Escreva aqui o conteúdo da documentação.
@@ -435,52 +332,165 @@ Escreva aqui o conteúdo da documentação.
 
 ---
 
-## Campos principais dos Docs
+### Sequência da documentação
 
-### `title`
+Se existir um arquivo de sequência para a navegação da documentação, altere apenas a ordem necessária.
 
-Título completo da página.
+Exemplo:
 
-### `linkTitle`
+```txt
+src/content/Docs/sequence.ts
+```
 
-Título curto exibido na navegação lateral.
+A ordem dos itens define a ordem exibida na navegação.
 
-### `weight`
-
-Define a ordem de exibição da página.
-
-### `categories`
-
-Categoria principal da documentação.
-
-### `tags`
-
-Tags relacionadas ao conteúdo.
+Evite reorganizar toda a documentação sem necessidade.
 
 ---
 
-# Checklist antes de abrir um Pull Request
+## Diretrizes para Pull Request
 
-Antes de enviar sua contribuição, confira:
+Antes de abrir um Pull Request, confirme:
 
-- O projeto roda localmente com `npm run dev`.
-- O código segue a estrutura e o padrão visual existente.
-- Os arquivos novos usam `kebab-case`.
-- As mensagens de commit seguem o padrão semântico.
-- O conteúdo em Markdown possui frontmatter válido.
-- Imagens estão na pasta correta.
-- Não há arquivos desnecessários ou temporários no commit.
-- O layout foi testado em desktop e mobile.
+* a alteração tem um objetivo claro;
+* a mudança respeita a identidade visual da Burd;
+* a página funciona em desktop e mobile;
+* arquivos novos usam `kebab-case`;
+* conteúdo em Markdown/MDX possui frontmatter válido;
+* imagens estão na pasta correta;
+* links foram revisados;
+* não há arquivos temporários no commit;
+* não há alterações sem relação com o objetivo do PR;
+* o build local foi testado.
+
+Rode:
+
+```bash
+npm run build
+```
+
+Se disponível, rode também:
+
+```bash
+npm run lint
+npm run typecheck
+```
 
 ---
 
-# Contato
+## Checklist de Pull Request
 
-- Discord: Burd IA
-- X/Twitter: @Burd.ia
-- Website oficial: burd.ia
-- GitHub: github.com/repo-burd
+* [ ] A alteração tem propósito claro.
+* [ ] O build passa.
+* [ ] O layout foi testado em desktop.
+* [ ] O layout foi testado em mobile.
+* [ ] Os arquivos novos usam `kebab-case`.
+* [ ] O conteúdo possui frontmatter válido.
+* [ ] As imagens estão na pasta correta.
+* [ ] Os links foram revisados.
+* [ ] Não há arquivos temporários no commit.
+* [ ] A mensagem de commit segue a convenção do projeto.
+* [ ] A mudança respeita a identidade visual da Burd.
 
 ---
 
-Obrigado por contribuir com a Burd.
+## Convenção de commits
+
+Use mensagens semânticas curtas:
+
+```txt
+tipo: descrição curta
+```
+
+Tipos aceitos:
+
+```txt
+feat
+fix
+docs
+style
+chore
+test
+perf
+refactor
+```
+
+Exemplos:
+
+```txt
+feat: adiciona seção de providers
+fix: corrige espaçamento do hero no mobile
+docs: adiciona guia para providers
+style: ajusta grid da seção de preços
+chore: atualiza dependências
+refactor: extrai componente de card
+perf: otimiza imagens da landing
+```
+
+Evite mensagens genéricas como:
+
+```txt
+update
+ajustes
+correções
+final
+```
+
+---
+
+## Não commitar
+
+Não commite:
+
+```txt
+node_modules/
+dist/
+build/
+.next/
+out/
+.cache/
+tmp/
+logs/
+.env
+.env.*
+*.log
+.DS_Store
+```
+
+Também não commite:
+
+```txt
+arquivos temporários
+imagens sem uso
+prints de teste
+conteúdo duplicado
+credenciais
+tokens
+chaves privadas
+```
+
+---
+
+## Notas para mantenedores
+
+Ao revisar mudanças, preste atenção especial em:
+
+* consistência visual;
+* responsividade;
+* copywriting;
+* estrutura dos componentes;
+* validade do frontmatter;
+* peso e formato das imagens;
+* links quebrados;
+* mudanças fora do escopo do PR;
+* arquivos gerados ou temporários.
+
+Um Pull Request que introduza visual inconsistente, conteúdo genérico, arquivos desnecessários ou quebra de responsividade não deve ser mesclado.
+
+---
+
+## Licença
+
+Este projeto é licenciado sob a licença **MIT**.
+
+Consulte o arquivo [`LICENSE`](./LICENSE) para mais detalhes.
